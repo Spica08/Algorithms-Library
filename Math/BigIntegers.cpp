@@ -206,6 +206,6 @@ void Verify_2(){
 
 int main(){
   //Verify_1(); //Addition
-  Verify_2(); //Multiplication (O(N))
+  Verify_2(); //Multiplication (O(N^2))
   return 0;
 }
