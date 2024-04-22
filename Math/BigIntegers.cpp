@@ -80,6 +80,19 @@ struct BigInteger{
     return res;
   }
 
+
+  //O(N^2)
+  vector<int> multiplication(const vector<int> &a, const vector<int> &b) const {
+    int NA = a.size();
+    int NB = b.size();
+    vector<int> res(NA + NB - 1);
+    for (int i = 0; i < NA; i++) for (int j = 0; j < NB; j++) {
+      res[i + j] += a[i] * b[j];
+    }
+    carry_and_fix(res);
+    return res;
+  }
+
   // comparison with abs, return true if a < b
   bool abs_comparison(const vector<int> &a, const vector<int> &b) const {
     // if num of digits are same
@@ -135,17 +148,34 @@ struct BigInteger{
     return *this;
   }
 
+  BigInteger& operator*=(const BigInteger& a) {
+    if(sign ^ a.sign){
+      value = multiplication(value, a.value);
+      sign = (value.size() == 1 && value[0] == 0);
+    }else{
+      value = multiplication(value, a.value);
+      sign = 1;
+    }
+    return *this;
+  }
+
   BigInteger operator+(const BigInteger& a) const {
     BigInteger res(*this);
     return res+=a;
   }
+
   BigInteger operator-(const BigInteger& a) const {
     BigInteger res(*this);
     return res-=a;
   }
+
+  BigInteger operator*(const BigInteger& a) const {
+    BigInteger res(*this);
+    return res*=a;
+  }
 };
 
-void Verify(){
+void Verify_1(){
   /*
     Verify with Library Checker (Addition of Big Integers)
       https://judge.yosupo.jp/problem/addition_of_big_integers
@@ -157,13 +187,25 @@ void Verify(){
   //Solve
   while(T--){
     string A, B; cin>> A >> B;
-    BigInteger a(A);
-    a += BigInteger(B);
-    a.print_val();
+    BigInteger a(A), b(B);
+    (a + b).print_val();
   }
 }
 
+void Verify_2(){
+  /*
+    Verify with AOJ (Multiplication of Big Integers)
+      https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_C
+   */
+
+  //Input and Solve
+  string A, B; cin>> A >> B;
+  BigInteger a(A), b(B);
+  (a * b).print_val();
+}
+
 int main(){
-  Verify(); //Addition
+  //Verify_1(); //Addition
+  Verify_2(); //Multiplication (O(N))
   return 0;
 }
