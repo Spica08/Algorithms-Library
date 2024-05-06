@@ -31,6 +31,7 @@ struct WeightedGraph{
   const vector<Edge<T>>& operator[](int i)const{return G[i];};
 };
 
+//Ford-Fulkerson
 struct MaxFlow{
   int N;
   vector<int> used;
