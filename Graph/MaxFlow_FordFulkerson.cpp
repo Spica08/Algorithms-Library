@@ -139,11 +139,8 @@ void Verify_2(){
         if((i + j) & 1) continue;
         mf.add_edge(i * M + j, ni * M + nj, 1, 1, 1, 1);
       }
-      if((i + j) & 1){
-        mf.add_edge(i * M + j, N * M + 1, 1, 1, 1, 1);
-      }else{
-        mf.add_edge(N * M, i * M + j, 1, 1, 1, 1);
-      }
+      if((i + j) & 1) mf.add_edge(i * M + j, N * M + 1, 1, 1, 1, 1);
+      else mf.add_edge(N * M, i * M + j, 1, 1, 1, 1);
     }
   }
   //Solve
