@@ -4,6 +4,7 @@ using ll = long long;
 
 const ll mod = 998244353;
 
+//@@
 template <typename T>
 struct SegmentTree {
   vector<T> dat;
@@ -41,6 +42,7 @@ struct SegmentTree {
   // get i-th value
   T get(int i) { return dat[i + n - 1]; }
 };
+//@@
 
 void Verify(){
   /*
