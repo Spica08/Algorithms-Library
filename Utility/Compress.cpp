@@ -7,7 +7,7 @@ struct Compress{
   vector<T> A;
   vector<T> reconstruct;
 
-  Compress(vector<T> C) : A(C), reconstruct(1000000){
+  Compress(vector<T> C) : A(C), reconstruct(C.size()+10){
     vector<T> vals = A;
     sort(vals.begin(), vals.end());
     vals.erase(unique(vals.begin(), vals.end()), vals.end());
