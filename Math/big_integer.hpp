@@ -3,7 +3,7 @@
 
 #include "../Utility/templete.hpp"
 
-struct BigInteger{
+class BigInteger{
   public:
     BigInteger(std::string x = std::to_string(0)){
       value_ = (x[0] == '-' ? to_bigint(x.substr(1)) : to_bigint(x));
