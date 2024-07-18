@@ -4,12 +4,14 @@
 #include "../Utility/templete.hpp"
 
 template<typename T>
+struct Edge{
+  int from, to, id;
+  T cost;
+  Edge(int from, int to, int id, T cost): from(from), to(to), id(id), cost(cost){}
+};
+
+template<typename T>
 class WeightedGraph{
-  struct Edge{
-    int from, to, id;
-    T cost;
-    Edge(int from, int to, int id, T cost):from(from), to(to), id(id), cost(cost){}
-  };
   public:
     WeightedGraph(int N): N(N), G(N){}
     void add_edge(int u, int v, int id, T cost, int zero_indexed = 0, int directed = 0){
@@ -18,10 +20,10 @@ class WeightedGraph{
       if(!directed)G[v].emplace_back(v, u, id, cost);
     }
     int size()const{return G.size();};
-    const std::vector<Edge>& operator[](int i)const{return G[i];};
+    const std::vector<Edge<T>>& operator[](int i)const{return G[i];};
   private:
     int N;
-    std::vector<std::vector<Edge>> G;
+    std::vector<std::vector<Edge<T>>> G;
 };
 
 class UnweightedGraph{
