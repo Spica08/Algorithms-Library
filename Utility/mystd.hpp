@@ -14,3 +14,4 @@
 #include <bitset> // bitset
 #include <cctype> // isupper, islower, isdigit, toupper, tolower
 #include <functional> // function
+#include <cassert> // assert
