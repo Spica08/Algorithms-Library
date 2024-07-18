@@ -2,7 +2,7 @@
 
 void Verify_1(){
   /*
-    Verify : Library Checker (Minimum Spanning Tree)
+    Verified : Library Checker (Minimum Spanning Tree)
       https://judge.yosupo.jp/problem/minimum_spanning_tree
    */
 
