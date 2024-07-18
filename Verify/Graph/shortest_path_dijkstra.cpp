@@ -2,7 +2,7 @@
 
 void Verify_1(){
   /*
-    Verify with Library Checker (Shortest Path)
+    Verified : Library Checker (Shortest Path)
       https://judge.yosupo.jp/problem/shortest_path
    */
 
@@ -32,7 +32,7 @@ void Verify_1(){
 
 void Verify_2(){
   /*
-    Verify with ABC192-E (Train)
+    Verified : ABC192-E (Train)
       https://atcoder.jp/contests/abc192/tasks/abc192_e
    */
 

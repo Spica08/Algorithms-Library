@@ -2,7 +2,7 @@
 
 void Verify_1(){
   /*
-    Verify with Library Checker (Addition of Big Integers)
+    Verified : Library Checker (Addition of Big Integers)
       https://judge.yosupo.jp/problem/addition_of_big_integers
    */
 
@@ -19,7 +19,7 @@ void Verify_1(){
 
 void Verify_2(){
   /*
-    Verify with AOJ (Multiplication of Big Integers)
+    Verified : AOJ (Multiplication of Big Integers)
       https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_C
    */
 

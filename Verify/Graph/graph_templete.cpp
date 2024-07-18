@@ -2,7 +2,7 @@
 
 void Verify_1(){
   /*
-    Verify with ABC276-B (Adjacency List)
+    Verified : ABC276-B (Adjacency List)
       https://atcoder.jp/contests/abc276/tasks/abc276_b
    */
 
@@ -27,7 +27,7 @@ void Verify_1(){
 
 void Verify_2(){
   /*
-    Verify with ABC276-B (Adjacency List)
+    Verified : ABC276-B (Adjacency List)
       https://atcoder.jp/contests/abc276/tasks/abc276_b
    */
 
@@ -53,6 +53,6 @@ void Verify_2(){
 }
 
 int main(){
-  //Verify_1(); //UnweghtedGraph
+  Verify_1(); //UnweghtedGraph
   Verify_2(); //WeghtedGraph
 }

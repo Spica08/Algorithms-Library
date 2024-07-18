@@ -2,7 +2,7 @@
 
 void Verify_1(){
   /*
-    Verify with Library Checker (Point Set Range Compsite)
+    Verified : Library Checker (Point Set Range Compsite)
       https://judge.yosupo.jp/problem/point_set_range_composite
    */
 
