@@ -2,7 +2,7 @@
 
 void Verify_1(){
   /*
-    Verified : with Library Checker (Binomial Coefficient (Prime Mod))
+    Verified : Library Checker (Binomial Coefficient (Prime Mod))
       https://judge.yosupo.jp/problem/binomial_coefficient_prime_mod
    */
 
