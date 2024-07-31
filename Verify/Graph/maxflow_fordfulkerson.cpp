@@ -74,7 +74,7 @@ void Verify_2(){
 }
 
 int main(){
-  //Verify_1(); //Maximum Flow
+  Verify_1(); //Maximum Flow
   Verify_2(); //Matching on bibartite graph
   return 0;
 }
