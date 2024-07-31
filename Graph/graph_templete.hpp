@@ -20,7 +20,7 @@ class WeightedGraph{
       if(!directed)G[v].emplace_back(v, u, id, cost);
     }
     int size()const{return G.size();};
-    const std::vector<Edge<T>>& operator[](int i)const{return G[i];};
+    std::vector<Edge<T>>& operator[](int i) {return G[i];};
   private:
     int N;
     std::vector<std::vector<Edge<T>>> G;
@@ -39,7 +39,7 @@ class UnweightedGraph{
       if(!directed)G[v].push_back(u);
     }
     int size()const{return G.size();};
-    const std::vector<int>& operator[](int i)const{return G[i];};
+    std::vector<int>& operator[](int i) {return G[i];};
   private:
     int N;
     std::vector<std::vector<int>> G;
