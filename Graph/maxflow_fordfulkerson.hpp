@@ -1,5 +1,5 @@
-#ifndef MAXFLOW_FORDFULKERSON
-#define MAXFLOW_FORDFULKERSON
+#ifndef MAXFLOW_FORDFULKERSON_HPP
+#define MAXFLOW_FORDFULKERSON_HPP
 
 #include "../Utility/templete.hpp"
 #include "../Graph/graph_templete.hpp"
@@ -66,4 +66,4 @@ class MaxFlow{
     }
 };
 
-#endif //MAXFLOW_FORDFULKERSON
+#endif //MAXFLOW_FORDFULKERSON_HPP
