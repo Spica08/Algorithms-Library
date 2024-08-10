@@ -8,13 +8,16 @@ void Verify_1(){
 
   //Input
   int V, E; std::cin >> V >> E;
-  UnweightedGraph G(V);
-  for(int i = 0; i < E; i++) G.read_edge(1, 1);
+  WeightedGraph<ll> G(V);
+  for(int i = 0; i < E; i++) {
+    int s, t; std::cin >> s >> t;
+    G.add_edge(s, t, i, 1, 1, 1);
+  }
 
   //SCC 
-  UnweightedGraph reG(0);
+  WeightedGraph<ll> reG(0);
   std::vector<int> sz;
-  StrongConnectedComponents scc(G);
+  StrongConnectedComponents<WeightedGraph<ll>> scc(G);
   scc.rebuild(reG, sz);
 
   //Solve

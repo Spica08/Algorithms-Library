@@ -4,17 +4,19 @@
 #include "../Utility/templete.hpp"
 #include "../Graph/graph_templete.hpp"
 
+// G : WeightedGraph
+template<typename Graph>
 class StrongConnectedComponents {
   public:
     int n;
-    UnweightedGraph G, rG;
+    Graph G, rG;
 
-    StrongConnectedComponents(UnweightedGraph &g) : 
+    StrongConnectedComponents(Graph &g) : 
       n(g.size()), G(n), rG(n), component_(n, -1), seen_(n){
       for(int i = 0; i < n; i++){
         for(auto e : g[i]){
-          G.add_edge(i, e, 1, 1);
-          rG.add_edge(e, i, 1, 1);
+          G.add_edge(i, e.to, e.id, e.cost, 1, 1);
+          rG.add_edge(e.to, i, e.id, e.cost, 1, 1);
         }
       }
       for (int i = 0; i < n; i++) {
@@ -31,21 +33,21 @@ class StrongConnectedComponents {
     }
 
     // SCC後のグラフ再構築
-    void rebuild(UnweightedGraph &nG, std::vector<int> &s){
+    void rebuild(Graph &nG, std::vector<int> &s){
       int N = 0;
       for (int c : component_) N = std::max(N, c + 1);
-      nG = UnweightedGraph(N);
+      nG = Graph(N);
       s.assign(N, 0);
       std::set<std::pair<int, int>> connected; //多重辺を管理
       //グラフ再構築
       for (int u = 0; u < n; u++) {
         for (auto v : G[u]) {
           int x = component_[u];
-          int y = component_[v];
+          int y = component_[v.to];
           if(x == y)continue;
           if(connected.count({x, y})) continue;
           connected.emplace(x, y);
-          nG.add_edge(x, y, 1, 1);
+          nG.add_edge(x, y, v.id, v.cost, 1, 1);
         }
       }
       //各強連結成分のサイズ
@@ -59,8 +61,8 @@ class StrongConnectedComponents {
     void dfs(int n){
       seen_[n] = 1;
       for(auto e : G[n]){
-        if(seen_[e]) continue;
-        dfs(e);
+        if(seen_[e.to]) continue;
+        dfs(e.to);
       }
       order_.push_back(n);
     }
@@ -68,8 +70,8 @@ class StrongConnectedComponents {
     void rdfs(int n, int cnt){
       component_[n] = cnt;
       for(auto e : rG[n]){
-        if(component_[e] != -1) continue;
-        rdfs(e, cnt);
+        if(component_[e.to] != -1) continue;
+        rdfs(e.to, cnt);
       }
     }
 };
