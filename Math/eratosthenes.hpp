@@ -13,6 +13,11 @@ class Eratosthenes{
       assert(x >= 0 && x < n_);
       return min_f_[x] == inf;
     }
+
+    int min_factor(int x){
+      assert(x >= 0 && x < n_);
+      return min_f_[x];
+    }
   private:
     int n_; // maxN
     std::vector<int> min_f_;

@@ -3,6 +3,8 @@
 
 #include "mystd.hpp"
 
+#define REP(i, n) for (int i = 0; i < (int)(n); i++)
+
 using ll = long long;
 using ull = unsigned long long;
 using Matrix = std::vector<std::vector<ll>>;
